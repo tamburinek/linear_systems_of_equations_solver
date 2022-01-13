@@ -38,8 +38,8 @@ void Matrix::changeValue(int row, int column, double value) {
 }
 
 void Matrix::printMatrix() {
-    cout << setprecision(2) << fixed;
-    cout << endl << "Your equation looks like this" << endl;
+    cout << setprecision(3) << fixed;
+    cout << endl << "Your equations look like this" << endl;
     for(size_t i = 0; i < rows; i++){
         for(size_t j = 0; j < columns; j++){
             if (j == columns - 2){

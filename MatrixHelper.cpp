@@ -5,7 +5,7 @@
 #include <iostream>
 #include "MatrixHelper.h"
 
-void MatrixHelper::solveMatrix() {
+void MatrixHelper::doGemSolve() {
     for(int i=0;i<matrix.getRows();i++){
         for(int j=i+1;j<matrix.getRows();j++){
             if(abs(matrix(i,i)) < abs(matrix(j,i))){
@@ -28,11 +28,11 @@ void MatrixHelper::solveMatrix() {
         }
     }
 
-    cout << "\n here is matrix after gem";
+    cout << "\nHere is equations after GEM";
     matrix.printMatrix();
 }
 
-void MatrixHelper::printResults() {
+void MatrixHelper::calculateResults() {
     matrix.setResultArray();
     for(int i=matrix.getRows()-1;i>=0;i--){
 
@@ -45,12 +45,40 @@ void MatrixHelper::printResults() {
         }
         matrix.addResult(i, matrix.getResultsArray()[i] / matrix(i,i));
     }
+}
 
+int MatrixHelper::calculateLeftSideRank() {
+    int result = matrix.getRows();
+    for (int i = matrix.getRows() - 1; i >= 0; --i) {
+        for (int j = 0; j < matrix.getRows(); ++j) {
+            if (matrix(i,j) == 0){
+                continue;
+            }else {
+                return result;
+            }
+        }
+        result--;
+    }
+    return result;
+}
+
+int MatrixHelper::calculateRightSideRank() {
+    int result = matrix.getRows();
+    int j = matrix.getRows();
+    for (int i = matrix.getRows() - 1; i >= 0; --i) {
+        if (matrix(i,j) == 0){
+            result--;
+            continue;
+        }else {
+            return result;
+        }
+    }
+    return result;
+}
+
+
+void MatrixHelper::printResults() {
     cout<<"\nHere are your results\n";
     cout<<"_____________________\n";
-    int index = 0;
-    for (double number : matrix.getResultsArray()) {
-        cout << "x" <<index << " = " << number <<endl;
-        index++;
-    }
+    matrix.printResults();
 }

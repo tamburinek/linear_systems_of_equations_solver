@@ -18,9 +18,15 @@ public:
 
     explicit MatrixHelper(const Matrix &matrix) : matrix(matrix) {}
 
-    void solveMatrix();
+    void doGemSolve();
+
+    void calculateResults();
 
     void printResults();
+
+    int calculateLeftSideRank();
+
+    int calculateRightSideRank();
 };
 
 

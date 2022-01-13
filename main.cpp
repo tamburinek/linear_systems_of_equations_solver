@@ -1,10 +1,30 @@
 #include<iostream>
-#include<math.h>
 #include "Matrix.h"
 #include "MatrixHelper.h"
 #include <fstream>
-
 using namespace std;
+
+vector<vector<double> > takeDataFromUser(int n){
+    vector<vector<double> > initialData;
+
+    for(int i=0;i<n;i++){
+
+        double helper;
+        vector<double> array;
+
+        for(int j=0;j<n+1;j++){
+            cin >> helper;
+            array.push_back(helper);
+        }
+        initialData.push_back(array);
+        array.clear();
+    }
+
+    return initialData;
+}
+
+
+
 int main(int argc, char *argv[]){
 
     //argument reader
@@ -39,27 +59,13 @@ int main(int argc, char *argv[]){
 
     cout<<"\nEnter the numbers you want to count: " << endl;
 
-    vector<vector<double> > initialData;
-
-    for(i=0;i<n;i++){
-
-        double helper;
-        vector<double> array;
-
-        for(j=0;j<n+1;j++){
-            cin >> helper;
-            array.push_back(helper);
-        }
-        initialData.push_back(array);
-        array.clear();
-    }
-
-    matrix.setValuesBegin(initialData);
+    vector<vector<double> > dataFromUser = takeDataFromUser(n);
+    matrix.setValuesBegin(dataFromUser);
     matrix.printMatrix();
 
     MatrixHelper helper(matrix);
-    helper.solveMatrix();
+    helper.doGemSolve();
+    helper.calculateResults();
     helper.printResults();
-
     return 0;
 }
