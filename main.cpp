@@ -33,11 +33,23 @@ int main(int argc, char *argv[]){
     //argument reader
     if (argc > 1){
         if (strcmp(argv[1],"--help") == 0){
-            cout << "This app solves system of linear equations \n"
-                    "It solves it only in on thread \n"
-                    "But that does not mean that it is useless :/ \n";
-
-            //todo write help
+            cout << "\nThis app solves system of linear equations \n"
+                    "It solves it only in one thread \n"
+                    "But that does not mean that it is useless :/ \n"
+                    "---------------------------\n"
+                    "Commands: \n"
+                    "You found this, so you know command --help \n"
+                    "But you can also use command --file "
+                    "which sets app to read from file mode\n"
+                    "After that you just have to write file name. \n"
+                    "That is all for commands. \n"
+                    "---------------------------\n"
+                    "So this is how app works: \n"
+                    "It takes data from user or file \n"
+                    "After that it prints the matrix in equation shape \n"
+                    "Than it makes some magic (it makes GEM) \n"
+                    "After GEM it prints Matrix in equation shape again \n"
+                    "Than it just prints the results \n";
 
             return 0;
         }
