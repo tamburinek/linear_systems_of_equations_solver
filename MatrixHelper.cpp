@@ -78,7 +78,24 @@ int MatrixHelper::calculateRightSideRank() {
 
 
 void MatrixHelper::printResults() {
-    cout<<"\nHere are your results\n";
-    cout<<"_____________________\n";
-    matrix.printResults();
+    int left = calculateLeftSideRank();
+    int right = calculateRightSideRank();
+    if (left == right){
+        if (left == matrix.getRows()){
+            cout<<"\nHere are your results\n";
+            cout<<"_____________________\n";
+            matrix.printResults();
+        }
+        else {
+            cout << "\nYour matrix has infinity results\n";
+        }
+    }
+    else{
+        if (left < right){
+            cout<<"\nI am really sorry but your inputs do not have any solution\n";
+        }
+        else {
+            cout << "How did you do that?";
+        }
+    }
 }
