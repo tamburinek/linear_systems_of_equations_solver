@@ -10,9 +10,10 @@ void MatrixHelper::doGemSolve() {
         for(int j=i+1;j<matrix.getRows();j++){
             if(abs(matrix(i,i)) < abs(matrix(j,i))){
                 for(int k=0;k<matrix.getColumns();k++){
-                    matrix.changeValue(i, k,matrix(i,k)+matrix(j,k));
-                    matrix.changeValue(j, k,matrix(i,k)-matrix(j,k));
-                    matrix.changeValue(i, k,matrix(i,k)-matrix(j,k));
+                    long double first = matrix(i,k);
+                    long double second = matrix(j,k);
+                    matrix.changeValue(i,k,second);
+                    matrix.changeValue(j,k,first);
                 }
             }
         }
