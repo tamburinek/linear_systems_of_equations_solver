@@ -6,7 +6,8 @@ Arťom Ňorba
 
 Semestrální projekt (dále jen "aplikace") má za úkol nálezt řešení zadané soustavy lineárních rovnic. Aplikace nejprve načte rovnice. Učiní tak ze souboru nebo od uživatele (viz. přepínače) a následně vytvoří rozšířenou matici a vypíše soustavu rovnic v jejím správném tvaru (s proměnnými a znamánky). Před tím než aplikace začně algoritmus zvaný GEM, tak si přeskupí rovnice do vhodného pořadí (prohazování řádků je povolenou úpravou při řešení soustav) a následně začne rozšířenou matici upravovat do tvaru horního trojúhelníku, kdy pod hlavní diagonálou jsou samé nuly. Následně aplikace znovu vytiskne soustavu rovnic, ale nyní už ve tvaru po GEMu. Pak se spočítají jednotlivé proměnné a vypíšou se uživateli. Tím program skončí.
 
-## Spuštění programu
+## Spuštění aplikace
+Aplikace se stáhne z tohoto Gitu a nejlepší možností je otebřít Clion a spustit aplikaci tam. Aplikaci se můžou, ale nemusí předat argumenty. 
 
 ## Přepínače
 Aplikace nepotřebuje ke spuštění žádný další vstupy. Pokud aplikace nedostane žádný argument, tak běží v "Take Data From User" módu, kdy aplikace čeká na vstupy z klávesnice. Pokud však aplikace dostane argument, tak může nastat několik možností. Přepínat mezi argumenty může uživatel při použití Clion při rozkliknutí Edit Configurations... Nebo pokud je uživatel znalejší, tak může argumenty posílat z terminálu. <br><br>
@@ -36,7 +37,8 @@ Then it just prints the results
 Process finished with exit code 0
 ```
 ### 2) --file
-Aplikace již nebude požadovat rovnice od uživatele, ale bdue čekat na název souboru který má otevřít a z něj rovnice načíst.
+Aplikace již nebude požadovat rovnice od uživatele, ale bude čekat na název souboru který má otevřít a z něj rovnice načíst. <br>
+Při zadávání je potřeba zadat i koncovku .txt !!!
 ```
 Write name of your file: 
 three.txt
@@ -68,16 +70,30 @@ Enter the numbers you want to count:
 
 //code outputs
 ```
+## Testovací data
+Pokud se aplikaci pošle příkaz --file a aplikace žádá název souboru, nalezne ho pouze ve složce textFiles. Pro otestování aplikace je připravena spousta souborů. Nachází se tam soustavy velikosti 3-10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200 a boss je 1000. Dále se tam nachází soustavy, které nemají řešení (noResult.txt) nebo nekonečně mnoho řešení (infinityResult.txt). Při zadávání je potřeba zadávat i koncovku .txt!!! Při vytváření nových dat je potřeba na první pozici zadat počet rovnic a pak zadat rovnice.
+
 ## Výstupy
-Výstupem správně spuštěné aplikace může být buď jedno řešení, kdy se pro každou proměnnou vypíše její hodnota. Může se ale stát, že soustava řešení nemá. Pak se vypíše příslušná hláška oznamující užiavteli absenci řešení. Poslední možností je, že soustava má nekonečně mnoho řešení, což se uživateli rovněž oznámí.
+Výstupem správně spuštěné aplikace může být buď jedno řešení, kdy se pro každou proměnnou vypíše její hodnota. Může se ale stát, že soustava řešení nemá. Pak se vypíše příslušná hláška oznamující užiavteli absenci řešení. Poslední možností je, že soustava má nekonečně mnoho řešení, což se uživateli rovněž oznámí a nalezne jedno řešení soustavy - aplikace bohužel nenalezne jádro. Součástí výstupu do terminálu jsou taky průběžné výpočty (matice po GEMu) a přepis z matice do soustavy rovnic (připíšou se neznámé).
 
 ## Implementace
+Aplikace běží pouze jednovláknově, ale i přesto dokáže rychle počítat soustavy o 100 - 1000 neznámých. Při větších počtech už je čas počítání opravdu velký.
 
 ## Přenositelnost
 Aplikace byla napsána v prostředí Clion na počítači běžícím na operačním systému MacOS. Pro splnění požadavku na přenositelnost byla následně aplikace přesunuta a spuštěna na jiném počítači využívající operační systém Windows. Aplikace je tedy bez problému přenositelná a není vázaná na specifický prostředí.
 
 ## Měření
-Měření proběhlo na operačním systému MacOS, na 4 jádrovém Intel Core i5 taktovaném na 1,4 GHz 
+Měření proběhlo na operačním systému MacOS, na 4 jádrovém Intel Core i5 taktovaném na 1,4 GHz.<br>
+Počítání matic:<br>
+
+3 až 30 rovnic < 8ms.<br>
+40 až 60 rovnic < 25ms <br>
+70 rovnic - 31ms <br>
+80 rovnic - 47ms <br>
+90 rovnic - 57ms <br>
+100 rovnic - 72ms.<br>
+200 rovnic - 481ms.<br>
+1000 rovnic - 37515ms <br>
 
 
 
