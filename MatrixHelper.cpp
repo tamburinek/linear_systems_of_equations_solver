@@ -81,6 +81,7 @@ void MatrixHelper::printResults() {
     int right = calculateRightSideRank();
     if (left == right){
         if (left == matrix.getRows()){
+            calculateResults();
             cout<<"\nHere are your results\n";
             cout<<"_____________________\n";
             matrix.printResults();
@@ -88,6 +89,8 @@ void MatrixHelper::printResults() {
         }
         else {
             cout << "\nYour matrix has infinity results\n";
+            cout << "Here is one result\n";
+            findOneResult();
         }
     }
     else{
@@ -98,4 +101,45 @@ void MatrixHelper::printResults() {
             cout << "How did you do that?";
         }
     }
+}
+
+void MatrixHelper::findOneResult() {
+    long double resultWriter;
+    matrix.setResultArray();
+
+    vector<bool> pivots;
+    for (int i = 0; i < matrix.getRows(); ++i) {
+        pivots.push_back(false);
+    }
+
+    for (int i = 0; i < matrix.getRows(); ++i) {
+        for (int j = i; j < matrix.getRows() ; ++j) {
+            if (matrix(i,j) != 0){
+                pivots[j] = true;
+                break;
+            }
+        }
+    }
+
+    for (int i = matrix.getRows() - 1; i >= 0 ; --i) {
+        long double helper = 0;
+        for (int j = matrix.getRows() - 1; j >= i ; --j) {
+            if (j == i){
+                if (!pivots[j]){
+                    continue;
+                }
+                else{
+                    resultWriter = (matrix(i, matrix.getRows()) - helper) / matrix(i,j);
+                    matrix.addResult(i,resultWriter);
+                }
+            }
+            if(!pivots[j]){
+                continue;
+            }
+            else if (pivots[j]){
+                helper += matrix(i,j) * matrix.getResultsArray()[j];
+            }
+        }
+    }
+    matrix.printResults();
 }

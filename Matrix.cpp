@@ -62,10 +62,7 @@ void Matrix::addResult(int pos, long double res) {
 
 void Matrix::printResults() {
     for(int i=0; i < results.size();i++){
-        if (i == results.size()-1){
-            cout<<  " x" << i+1 << " = " << results[i]<<" ";
-        }
-        else if (i == 0){
+        if (i == 0){
             cout<<  "| x" << i+1 << " = " << results[i]<<" |";
         }
         else {

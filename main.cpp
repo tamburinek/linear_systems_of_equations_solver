@@ -117,13 +117,13 @@ int main(int argc, char *argv[]){
 
     matrix.setValuesBegin(matrixData);
     matrix.printMatrix();
+
     MatrixHelper helper(matrix);
     helper.doGemSolve();
-    helper.calculateResults();
     helper.printResults();
 
     auto end = std::chrono::high_resolution_clock::now();
-    std::cout << "\nNeeded " << to_ms(end - start).count() << " ms to finish.\n";
+    std::cout << "\nTime required to solve equations " << to_ms(end - start).count() << " ms.\n";
 
     return 0;
 }

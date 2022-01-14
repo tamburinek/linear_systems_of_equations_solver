@@ -27,6 +27,8 @@ public:
     int calculateLeftSideRank();
 
     int calculateRightSideRank();
+
+    void findOneResult();
 };
 
 
