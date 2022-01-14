@@ -24,12 +24,10 @@ public:
 
     int getRows() const;
     int getColumns() const;
-    vector<vector<long double> > getValues();
     void setValuesBegin(vector<vector<long double> > put);
     void changeValue(int row, int column, long double value);
     void printMatrix();
     vector<long double> getResultsArray();
-    void setResults(vector<long double> res);
     void addResult(int pos, long double res);
     void printResults();
     void setResultArray();

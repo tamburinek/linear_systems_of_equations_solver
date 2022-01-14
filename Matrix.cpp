@@ -14,10 +14,6 @@ int Matrix::getColumns() const {
     return this->columns;
 }
 
-vector<vector<long double> > Matrix::getValues() {
-    return this->values;
-}
-
 void Matrix::setValuesBegin(vector<vector<long double> > put) {
     this->values = put;
 }
@@ -67,12 +63,19 @@ void Matrix::addResult(int pos, long double res) {
 
 void Matrix::printResults() {
     for(int i=0; i < results.size();i++){
-        cout<<  "x" << i+1 << " = " << results[i]<<"\n";
-    }
-}
+        if (i == results.size()-1){
+            cout<<  " x" << i+1 << " = " << results[i]<<" ";
+        }
+        else if (i == 0){
+            cout<<  "| x" << i+1 << " = " << results[i]<<" |";
+        }
+        else {
+            cout<<  " x" << i+1 << " = " << results[i]<<" |";
+        }
 
-void Matrix::setResults(vector<long double> res) {
-    this->results = res;
+
+    }
+    cout << endl;
 }
 
 void Matrix::setResultArray() {

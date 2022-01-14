@@ -30,7 +30,6 @@ int main(int argc, char *argv[]){
 
     bool solveFromFile = false;
 
-    //argument reader
     if (argc > 1){
         if (strcmp(argv[1],"--help") == 0){
             cout << "\nThis app solves system of linear equations \n"
@@ -52,6 +51,7 @@ int main(int argc, char *argv[]){
                     "Then it makes some magic (it makes GEM) \n"
                     "After GEM it prints Matrix in equation shape again \n"
                     "Then it just prints the results \n";
+
 
             return 0;
         }
@@ -104,7 +104,6 @@ int main(int argc, char *argv[]){
         }
     }
 
-    //end of argument reader
     else if (!solveFromFile){
         cout << "\nYou started this app so you now know how to use it \n"
                 "If not - stop app and pass argument --help to show guide \n";
