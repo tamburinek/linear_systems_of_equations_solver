@@ -42,14 +42,16 @@ int main(int argc, char *argv[]){
                     "But you can also use command --file "
                     "which sets app to read from file mode\n"
                     "After that you just have to write file name. \n"
+                    "If you start app without any command - app will be in Take Data From User status\n"
+                    "If you start app with unknown command it will stop without result\n"
                     "That is all for commands. \n"
                     "---------------------------\n"
                     "So this is how app works: \n"
                     "It takes data from user or file \n"
                     "After that it prints the matrix in equation shape \n"
-                    "Than it makes some magic (it makes GEM) \n"
+                    "Then it makes some magic (it makes GEM) \n"
                     "After GEM it prints Matrix in equation shape again \n"
-                    "Than it just prints the results \n";
+                    "Then it just prints the results \n";
 
             return 0;
         }
