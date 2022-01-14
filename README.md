@@ -13,7 +13,7 @@ Aplikace se stáhne z tohoto Gitu a nejlepší možností je otebřít Clion a s
 Aplikace nepotřebuje ke spuštění žádný další vstupy. Pokud aplikace nedostane žádný argument, tak běží v "Take Data From User" módu, kdy aplikace čeká na vstupy z klávesnice. Pokud však aplikace dostane argument, tak může nastat několik možností. Přepínat mezi argumenty může uživatel při použití Clion při rozkliknutí Edit Configurations... Nebo pokud je uživatel znalejší, tak může argumenty posílat z terminálu. <br><br>
 
 ### 1) --help
-Aplikace dostane argument (přepínač) --help a vypíše návod na použití
+Aplikace dostane argument (přepínač) --help a vypíše návod na použití.
 ```
 This app solves system of linear equations 
 It solves it only in one thread 
