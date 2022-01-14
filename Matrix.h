@@ -15,8 +15,8 @@ private:
 
     int rows;
     int columns;
-    vector<vector<double> > values;
-    vector<double> results;
+    vector<vector<long double> > values;
+    vector<long double> results;
 
 public:
 
@@ -24,18 +24,18 @@ public:
 
     int getRows() const;
     int getColumns() const;
-    vector<vector<double> > getValues();
-    void setValuesBegin(vector<vector<double> > put);
-    void changeValue(int row, int column, double value);
+    vector<vector<long double> > getValues();
+    void setValuesBegin(vector<vector<long double> > put);
+    void changeValue(int row, int column, long double value);
     void printMatrix();
-    vector<double> getResultsArray();
-    void setResults(vector<double> res);
-    void addResult(int pos, double res);
+    vector<long double> getResultsArray();
+    void setResults(vector<long double> res);
+    void addResult(int pos, long double res);
     void printResults();
     void setResultArray();
 
-    double& operator()(int row, int col);
-    const double& operator()(int row, int col) const;
+    long double& operator()(int row, int col);
+    const long double& operator()(int row, int col) const;
 
 };
 

@@ -1,0 +1,5 @@
+# ninja log v5
+3	1194	1642094183164594938	CMakeFiles/semestralka_pjc.dir/MatrixHelper.cpp.o	a3570ffb7537b677
+1	1306	1642094183275784109	CMakeFiles/semestralka_pjc.dir/Matrix.cpp.o	ac81278016402315
+0	1480	1642094183451727586	CMakeFiles/semestralka_pjc.dir/main.cpp.o	c27c3f584e716f91
+1480	1539	1642094183516193913	semestralka_pjc	43fd76411e106d45

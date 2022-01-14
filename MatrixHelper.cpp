@@ -21,7 +21,7 @@ void MatrixHelper::doGemSolve() {
 
     for(int i=0;i<matrix.getRows()-1;i++){
         for(int j=i+1;j<matrix.getRows();j++){
-            double f = matrix(j,i) / matrix(i,i);
+            long double f = matrix(j,i) / matrix(i,i);
             for(int k=0;k<matrix.getRows()+1;k++){
                 matrix.changeValue(j, k,matrix(j,k)-f*matrix(i,k));
             }
@@ -85,6 +85,7 @@ void MatrixHelper::printResults() {
             cout<<"\nHere are your results\n";
             cout<<"_____________________\n";
             matrix.printResults();
+            cout<<"_____________________\n";
         }
         else {
             cout << "\nYour matrix has infinity results\n";

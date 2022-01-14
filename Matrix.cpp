@@ -14,22 +14,22 @@ int Matrix::getColumns() const {
     return this->columns;
 }
 
-vector<vector<double> > Matrix::getValues() {
+vector<vector<long double> > Matrix::getValues() {
     return this->values;
 }
 
-void Matrix::setValuesBegin(vector<vector<double> > put) {
+void Matrix::setValuesBegin(vector<vector<long double> > put) {
     this->values = put;
 }
 
-double& Matrix::operator()(const int row, const int col) {
+long double& Matrix::operator()(const int row, const int col) {
     return this->values[row][col];
 }
-const double &Matrix::operator()(const int row, const int col) const {
+const long double &Matrix::operator()(const int row, const int col) const {
     return this->values[row][col];
 }
 
-void Matrix::changeValue(int row, int column, double value) {
+void Matrix::changeValue(int row, int column, long double value) {
     if (((row + 1) > this->rows) || ((column + 1 ) > this->columns)){
         cout << "u can not change that position because this position does not exist" << endl;
         return;
@@ -57,11 +57,11 @@ void Matrix::printMatrix() {
 
 }
 
-vector<double> Matrix::getResultsArray() {
+vector<long double> Matrix::getResultsArray() {
     return this->results;
 }
 
-void Matrix::addResult(int pos, double res) {
+void Matrix::addResult(int pos, long double res) {
     this->results[pos] = res;
 }
 
@@ -71,12 +71,12 @@ void Matrix::printResults() {
     }
 }
 
-void Matrix::setResults(vector<double> res) {
+void Matrix::setResults(vector<long double> res) {
     this->results = res;
 }
 
 void Matrix::setResultArray() {
-    vector<double> resultik;
+    vector<long double> resultik;
     for (int i = 0; i < rows; ++i) {
         resultik.push_back(0);
     }

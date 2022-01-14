@@ -9,12 +9,12 @@ std::chrono::milliseconds to_ms(TimePoint tp) {
     return std::chrono::duration_cast<std::chrono::milliseconds>(tp);
 }
 
-vector<vector<double> > takeDataFromUser(int n){
+vector<vector<long double> > takeDataFromUser(int n){
     cout<<"\nEnter the numbers you want to count: " << endl;
-    vector<vector<double> > initialData;
+    vector<vector<long double> > initialData;
     for(int i=0;i<n;i++){
-        double helper;
-        vector<double> array;
+        long double helper;
+        vector<long double> array;
 
         for(int j=0;j<n+1;j++){
             cin >> helper;
@@ -57,13 +57,13 @@ int main(int argc, char *argv[]){
             solveFromFile = true;
         }
         else {
-            cout << "I dont know this command - we are finished here";
+            cout << "\nI dont know this command - we are finished here\n";
             return 0;
         }
     }
 
     int n;
-    vector<vector<double> > matrixData;
+    vector<vector<long double> > matrixData;
 
     if (solveFromFile){
         cout << "\nWrite name of your file: \n";
@@ -80,11 +80,15 @@ int main(int argc, char *argv[]){
         else{
             cout<<"\nI started reading numbers from file" << endl;
             fileToRead >> n;
-            cout << "here is number of rows " << n;
-            vector<vector<double> > initialData;
+            if (n <= 1){
+                cout << "\nI am sorry but no jokes with me! Text just said that u dont have variables. Not cool.\n";
+                return 0;
+            }
+            cout << "Number of variables is " << n;
+            vector<vector<long double> > initialData;
             for(int i=0;i<n;i++){
-                double helper;
-                vector<double> array;
+                long double helper;
+                vector<long double> array;
 
                 for(int j=0;j<n+1;j++){
                     fileToRead >> helper;
