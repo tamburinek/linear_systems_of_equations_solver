@@ -50,7 +50,6 @@ void Matrix::printMatrix() {
         }
         cout << endl;
     }
-
 }
 
 vector<long double> Matrix::getResultsArray() {
@@ -72,8 +71,6 @@ void Matrix::printResults() {
         else {
             cout<<  " x" << i+1 << " = " << results[i]<<" |";
         }
-
-
     }
     cout << endl;
 }
